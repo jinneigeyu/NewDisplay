@@ -1,0 +1,13 @@
+# built application files
+*.apk
+*.obj
+*.tlog
+*.user
+
+# log files
+*.log
+
+# built Dir
+/Display/.vs/*
+/Display/x64/*
+/Display/Display/x64/*
