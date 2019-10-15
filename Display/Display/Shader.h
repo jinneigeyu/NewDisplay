@@ -1,7 +1,6 @@
 #pragma once
 #ifndef SHADER_H
 #define SHADER_H
-#endif // !SHADER_H
 
 #include "includes/glad/glad.h"
 #include "includes/glm/glm.hpp"
@@ -12,15 +11,12 @@
 #include <fstream>
 #include <iostream>
 
-
-
-
 class Shader
 {
 public:
     unsigned int ID;
 
-    Shader(const char* vertexPaht, const char*fragmentPath);
+    Shader(const char* vertexPath, const char*fragmentPath);
 
     void Use();
 
@@ -33,8 +29,8 @@ public:
     void SetUniformMat4(const std::string &name, glm::mat4 value) const;
 
 private:
-    unsigned int _vertexShader;
-    unsigned int _fragmentShader;
+    unsigned int vertex_shader;
+    unsigned int fragment_shader;
 
     enum ShaderType
     {
@@ -42,9 +38,10 @@ private:
         FRAGMENT
     };
 
-    void SetShaderFile(const char* filePath,ShaderType shaderType);
-   
+    void SetShaderFile(const char* filePath, ShaderType shaderType);
+
     void LinkAndDelet();
 };
 
+#endif // !SHADER_H
 
