@@ -1,5 +1,3 @@
-
-
 #include "Shader.h"
 
 Shader::Shader(const char * vertexPath, const char * fragmentPath)
@@ -73,12 +71,12 @@ void Shader::SetShaderFile(const char* filePath, ShaderType shaderType)
     switch (shaderType)
     {
         case Shader::VERTEX:
-            vertex_shader = glCreateShader(GL_VERTEX_SHADER);
-            vfShader = vertex_shader;
+            m_vertex_shader = glCreateShader(GL_VERTEX_SHADER);
+            vfShader = m_vertex_shader;
             break;
         case Shader::FRAGMENT:
-            fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
-            vfShader = fragment_shader;
+            m_fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
+            vfShader = m_fragment_shader;
             break;
         default:
             break;
@@ -112,8 +110,8 @@ void Shader::LinkAndDelet()
         std::cout << "ERROR::SHADER::LINKING_FAILED\n" << infoLog << std::endl;
     }
 
-    glDeleteShader(vertex_shader);
-    glDeleteShader(fragment_shader);
+    glDeleteShader(m_vertex_shader);
+    glDeleteShader(m_fragment_shader);
 }
 
 #pragma endregion

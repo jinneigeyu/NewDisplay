@@ -15,9 +15,11 @@ using namespace NJYWindow;
 
 int main()
 {
+    // open data
+    DataStruct::DataMatrix("DemoMatrix.csv");
     
-    JYWindow window;    
-    auto rec = window.CreatWindow(win_width, win_height, "testwindow");
+    JYWindow* window=JYWindow().GetPointer();    
+    auto rec = window->CreatWindow(win_width, win_height, "testwindow",nullptr);
     if (rec == nullptr)
     {
         std::cout << "Fail to Creat Window" << std::endl;
@@ -33,15 +35,15 @@ int main()
 
     Shader shader("shader.vs", "shader.fs");
 
-    while (!glfwWindowShouldClose(window.DisplayWindow))
+    while (!glfwWindowShouldClose(window->DisplayWindow))
     {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glfwSwapBuffers(window.DisplayWindow);
+        glfwSwapBuffers(window->DisplayWindow);
         glfwPollEvents();
     }
-    window.DestroyWindow();
+    window->Close();
     return 0;
 }
 

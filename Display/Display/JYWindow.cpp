@@ -19,7 +19,7 @@ namespace NJYWindow {
         return this;
     }
 
-    GLFWwindow * JYWindow::CreatWindow(const int with, const int heigth, const char * title)
+    GLFWwindow * JYWindow::CreatWindow(const int with, const int heigth, const char * title,DataMatrix* dataMatrix)
     {
         glfwInit();
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -40,6 +40,16 @@ namespace NJYWindow {
         glfwMakeContextCurrent(DisplayWindow);
 
         return DisplayWindow;
+    }
+
+    void JYWindow::Display3D()
+    {
+        //to do
+    }
+
+    void JYWindow::Close()
+    {
+        DestroyWindow();
     }
 
     void JYWindow::DestroyWindow()

@@ -4,8 +4,10 @@
 
 #include "includes/glad/glad.h"
 #include "includes/GLFW/glfw3.h"
-
+#include "DataMatrix.h"
+using namespace DataStruct;
 namespace NJYWindow {
+
     class JYWindow
     {
     public:
@@ -13,10 +15,13 @@ namespace NJYWindow {
         ~JYWindow();
 
         JYWindow* GetPointer();
-        GLFWwindow* CreatWindow(const int with, const int heigth, const char* title);
-        void DestroyWindow();
+        GLFWwindow* CreatWindow(const int with, const int heigth, const char* title, DataMatrix * dataMatrix);
+        void Display3D();
+        void Close();
+
         GLFWwindow* DisplayWindow;
-   
+    private:
+        void DestroyWindow();
     };
 }
 #endif // JY_WINDOW

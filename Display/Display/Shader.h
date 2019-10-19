@@ -29,8 +29,8 @@ public:
     void SetUniformMat4(const std::string &name, glm::mat4 value) const;
 
 private:
-    unsigned int vertex_shader;
-    unsigned int fragment_shader;
+    unsigned int m_vertex_shader;
+    unsigned int m_fragment_shader;
 
     enum ShaderType
     {
