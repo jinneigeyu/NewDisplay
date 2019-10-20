@@ -89,7 +89,7 @@ void Shader::SetShaderFile(const char* filePath, ShaderType shaderType)
     if (!success)
     {
         glGetShaderInfoLog(vfShader, 512, NULL, infoLog);
-        std::cout << "ERRO::SHADER::" + shaderType << " COMPILE_FAILED\n" << std::endl;
+        std::cout << "ERRO::SHADER::" << shaderType << " COMPILE_FAILED\n" << std::endl;
     }
     
     glAttachShader(ID, vfShader);

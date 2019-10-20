@@ -16,8 +16,7 @@ using namespace NJYWindow;
 int main()
 {
     // open data
-    DataStruct::DataMatrix("DemoMatrix.csv");
-    
+   
     JYWindow* window=JYWindow().GetPointer();    
     auto rec = window->CreatWindow(win_width, win_height, "testwindow",nullptr);
     if (rec == nullptr)
@@ -34,6 +33,8 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     Shader shader("shader.vs", "shader.fs");
+
+    DataStruct::DataMatrix("DemoMatrix.csv");
 
     while (!glfwWindowShouldClose(window->DisplayWindow))
     {

@@ -1,11 +1,12 @@
 #pragma once
 #ifndef DATA_MATRIX_H
 
+
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <sstream>
 #include <vector>
+
 
 namespace DataStruct
 {
@@ -28,15 +29,9 @@ namespace DataStruct
         float XResolution;
         float YResolution;
         float* DataPtr;
-
-        float* ToArry()
-        {
-            if (m_succes)
-            {
-                return DataPtr;
-            }
-            return nullptr;
-        };
+        float* VerticesPtr;
+        
+        int* GetIndices();
 
         DataMatrix* GetPtr()
         {
@@ -51,6 +46,8 @@ namespace DataStruct
         float m_data;
         std::string m_file_path;
         bool m_succes = false;
+        std::vector <std::string> Split(const std::string & str, const std::string & delim);
+        void SetVertices();
     };
 
 }
