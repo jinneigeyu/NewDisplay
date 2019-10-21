@@ -29,9 +29,10 @@ namespace DataStruct
         float XResolution;
         float YResolution;
         float* DataPtr;
-        float* VerticesPtr;
         
-        int* GetIndices();
+
+        unsigned int* ElementIndices;
+        unsigned int* GetIndices();
 
         DataMatrix* GetPtr()
         {
