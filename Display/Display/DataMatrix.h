@@ -29,7 +29,7 @@ namespace DataStruct
         float XResolution;
         float YResolution;
         float* InputDataArry;
-        float* VerticesArry;
+        float* VerticesArray;
         unsigned int* ElementIndices;
 
         float* GetVerticesArry();

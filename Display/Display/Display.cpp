@@ -16,7 +16,7 @@ using namespace NJYWindow;
 int main()
 {
     // open data
-    DataStruct::DataMatrix("DemoMatrix.csv");
+    DataStruct::DataMatrix data_matrix("DemoMatrix.csv");
 
     JYWindow* window=JYWindow().GetPointer();    
     auto rec = window->CreatWindow(win_width, win_height, "testwindow",nullptr);
@@ -30,9 +30,24 @@ int main()
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
-    }    
+    } 
 
     Shader shader("shader.vs", "shader.fs");
+
+    GLuint VAO, VBO, EBO;
+
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
+
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(data_matrix.VerticesArray),data_matrix.VerticesArray,GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glGenBuffers(1, &EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    //todo
 
     
 

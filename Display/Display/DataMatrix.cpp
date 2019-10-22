@@ -79,7 +79,7 @@ namespace DataStruct
 
     float * DataMatrix::GetVerticesArry()
     {
-        return VerticesArry;
+        return VerticesArray;
     }
 
     unsigned  int * DataMatrix::GetElementIndices()
@@ -126,7 +126,7 @@ namespace DataStruct
                     temp_index[index++] = InputDataArry[j + i * Cols];
                 }
             }
-            this->VerticesArry = temp_index;
+            this->VerticesArray = temp_index;
         }
         catch (const std::exception)
         {
