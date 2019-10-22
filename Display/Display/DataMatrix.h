@@ -15,7 +15,7 @@ namespace DataStruct
     {
     public:
         DataMatrix(float data[], int rows, int cols,
-            float xResolution, float yResolution) :DataPtr(data), Rows(rows), Cols(cols),
+            float xResolution, float yResolution) :InputDataArry(data), Rows(rows), Cols(cols),
             XResolution(XResolution), YResolution(yResolution)
         {
             m_data = true;
@@ -28,11 +28,12 @@ namespace DataStruct
         unsigned int Cols;
         float XResolution;
         float YResolution;
-        float* DataPtr;
-        
-
+        float* InputDataArry;
+        float* VerticesArry;
         unsigned int* ElementIndices;
-        unsigned int* GetIndices();
+
+        float* GetVerticesArry();
+        unsigned int* GetElementIndices();
 
         DataMatrix* GetPtr()
         {
@@ -48,7 +49,8 @@ namespace DataStruct
         std::string m_file_path;
         bool m_succes = false;
         std::vector <std::string> Split(const std::string & str, const std::string & delim);
-        void SetVertices();
+        void SetVerticesArry();
+        void SetVerticesIndex();
     };
 
 }
