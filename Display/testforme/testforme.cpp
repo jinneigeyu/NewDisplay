@@ -27,7 +27,7 @@ const char *fragmentShaderSource =
 "out vec4 FragColor;\n"
 "void main()\n"
 "{\n"
-"   FragColor = vec4(ourColor, 1.0f);\n"
+"   FragColor = vec4(ourColor, 0);\n"
 "}\n\0";
 
 int main()
@@ -112,6 +112,7 @@ int main()
         -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // 左下
          0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // 顶部
     };
+    float* a = vertices;
     unsigned int indices[] = {  // note that we start from 0!
         0, 1, 2, // first Triangle          
     };
@@ -123,7 +124,7 @@ int main()
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float)*18, vertices, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);

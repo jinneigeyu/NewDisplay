@@ -5,7 +5,6 @@
 #include "includes/glad/glad.h"
 #include "includes/GLFW/glfw3.h"
 #include "DataMatrix.h"
-using namespace DataStruct;
 namespace NJYWindow {
 
     class JYWindow

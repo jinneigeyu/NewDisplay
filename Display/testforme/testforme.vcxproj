@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\jinyu\source\repos\NewDisplay\Display\Display\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\jinyu\source\repos\NewDisplay\Display\Display\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)$(TargetName)\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)$(TargetName)\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -83,6 +83,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <ReferencePath>C:\Users\Administrator\Documents\NewDisplay\Display\Display\includes;$(ReferencePath)</ReferencePath>
+    <LibraryPath>C:\Users\Administrator\Documents\NewDisplay\Display\Display\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -151,6 +153,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

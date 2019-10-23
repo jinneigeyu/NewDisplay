@@ -41,20 +41,24 @@ int main()
 
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(data_matrix.VerticesArray),data_matrix.VerticesArray,GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, (void*)0);
+    glBufferData(GL_ARRAY_BUFFER,data_matrix.VerticesLength ,data_matrix.VerticesArray,GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,3*sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
     glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    //todo
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,data_matrix.ElementsLength , data_matrix.ElementIndices, GL_STATIC_DRAW);
 
     
 
     while (!glfwWindowShouldClose(window->DisplayWindow))
     {
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.2f, 0.3f, 0.4f, 0.5f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        shader.Use();
+        glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, (data_matrix.Rows - 1)*(data_matrix.Cols - 1) * 6, GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window->DisplayWindow);
         glfwPollEvents();

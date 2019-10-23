@@ -1,15 +1,13 @@
 #pragma once
 #ifndef DATA_MATRIX_H
-
-
+#define DATA_MATRIX_H
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <vector>
 
 
-namespace DataStruct
-{
+
 
     class DataMatrix
     {
@@ -26,15 +24,21 @@ namespace DataStruct
 
         unsigned int Rows;
         unsigned int Cols;
+        
         float XResolution;
         float YResolution;
+
         float* InputDataArry;
+
         float* VerticesArray;
+        int VerticesLength;
         unsigned int* ElementIndices;
+        int ElementsLength;
 
         float* GetVerticesArry();
         unsigned int* GetElementIndices();
 
+        void Disposs();
         DataMatrix* GetPtr()
         {
             if (m_succes)
@@ -53,6 +57,6 @@ namespace DataStruct
         void SetVerticesIndex();
     };
 
-}
+
 
 #endif  //  DATA_MATRIX_H
